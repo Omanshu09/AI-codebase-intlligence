@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 // Checked in this order: runtime config.js (editable post-build, see
 // public/config.js) -> Vite build-time env var -> localhost fallback for
 // local dev only. This was previously build-time-only, which is why the
 // deployed Vercel site was silently calling localhost and failing.
 const BASE_URL = window.__API_BASE_URL__ || import.meta.env.VITE_API_URL || "http://localhost:8000";
-=======
-const BASE_URL = import.meta.env.VITE_API_URL || "https://ai-codebase-intlligence.onrender.com";
->>>>>>> 36f2585decd03622f5cebd5ed9844efbe9db14d2
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {

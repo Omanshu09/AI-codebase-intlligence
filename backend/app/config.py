@@ -8,7 +8,12 @@ class Settings(BaseSettings):
     anthropic_api_key: str = ""
     database_url: str = "sqlite:///./data/app.db"
     chroma_persist_dir: str = "./data/chroma"
-    embedding_model: str = "all-MiniLM-L6-v2"
+    # Local embedding model, loaded via fastembed (ONNX Runtime, no PyTorch).
+    # bge-small-en-v1.5 is fastembed's small, fast default -- ~130MB on
+    # first download, low runtime memory footprint (unlike the previous
+    # sentence-transformers/PyTorch setup, which was getting OOM-killed on
+    # memory-capped hosts the moment the model actually loaded).
+    embedding_model: str = "BAAI/bge-small-en-v1.5"
     clone_dir: str = "./data/repos"
     top_k: int = 5
 

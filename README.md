@@ -5,11 +5,19 @@ function/class boundaries, embeds each chunk, and lets you ask natural
 language questions about the codebase through a RAG (Retrieval-Augmented
 Generation) pipeline — with source-cited answers.
 
-Runs **entirely for free** by default: embeddings run locally
-(`sentence-transformers`), the vector index is local (`ChromaDB`, disk-based,
-no server), and metadata is stored in SQLite. Add an `ANTHROPIC_API_KEY` if
-you want real LLM-generated explanations instead of the templated fallback
-answer.
+Runs **entirely for free** by default: embeddings run locally via
+`fastembed` (ONNX Runtime, no PyTorch -- important on memory-capped hosts
+like a free-tier Render instance), the vector index is local (`ChromaDB`,
+disk-based, no server), and metadata is stored in SQLite. Add an
+`ANTHROPIC_API_KEY` if you want real LLM-generated explanations instead of
+the templated fallback answer.
+
+> **Deploying on a free/memory-limited host?** This originally used
+> `sentence-transformers`, which pulls in PyTorch (~700MB runtime). On a
+> 512MB instance that got OOM-killed the instant the model actually loaded
+> -- ingestion or a query would just hang forever with no visible error,
+> the classic symptom of a process dying mid-request. Switched to
+> `fastembed` for exactly this reason.
 
 ## Architecture
 
