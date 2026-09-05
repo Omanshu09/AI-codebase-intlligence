@@ -1,11 +1,11 @@
 :root {
-  color-scheme: dark;
-  --bg: #0f1115;
-  --panel: #171a21;
-  --border: #2a2e37;
-  --text: #e6e8eb;
-  --muted: #9aa1ac;
-  --accent: #6c8cff;
+  color-scheme: light;
+  --bg: #ffffff;
+  --panel: #f7f8fa;
+  --border: #e2e5ea;
+  --text: #1a1d23;
+  --muted: #6b7280;
+  --accent: #3b5bfd;
 }
 
 * { box-sizing: border-box; }
@@ -49,7 +49,7 @@ body {
 
 input, textarea {
   width: 100%;
-  background: #10131a;
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text);
@@ -85,6 +85,7 @@ button:disabled {
   justify-content: space-between;
   align-items: center;
   padding: 10px 12px;
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 8px;
   cursor: pointer;
@@ -102,9 +103,9 @@ button:disabled {
   text-transform: uppercase;
 }
 
-.badge.ready { background: #1d4d33; color: #7de3a3; }
-.badge.processing { background: #4d451d; color: #e3c97d; }
-.badge.failed { background: #4d1d1d; color: #e37d7d; }
+.badge.ready { background: #e3f6ea; color: #1c7d43; }
+.badge.processing { background: #fdf2d0; color: #96700a; }
+.badge.failed { background: #fbe4e4; color: #b42318; }
 
 .chat-log {
   display: flex;
@@ -116,8 +117,8 @@ button:disabled {
 }
 
 .message { border-radius: 10px; padding: 12px 14px; font-size: 14px; line-height: 1.5; }
-.message.user { background: #1b2030; align-self: flex-end; max-width: 80%; }
-.message.assistant { background: #12151c; border: 1px solid var(--border); }
+.message.user { background: #eef1ff; align-self: flex-end; max-width: 80%; }
+.message.assistant { background: #ffffff; border: 1px solid var(--border); }
 
 .sources {
   margin-top: 10px;
@@ -135,7 +136,7 @@ button:disabled {
 }
 
 .error {
-  color: #e37d7d;
+  color: #b42318;
   font-size: 13px;
   margin-top: 8px;
 }

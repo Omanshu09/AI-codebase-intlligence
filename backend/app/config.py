@@ -16,6 +16,8 @@ class Settings(BaseSettings):
     supported_extensions: tuple = (
         ".py", ".js", ".jsx", ".ts", ".tsx", ".java", ".go",
         ".rs", ".rb", ".php", ".c", ".cpp", ".h", ".hpp", ".cs",
+        ".md", ".mdx", ".rst", ".json", ".yaml", ".yml", ".toml",
+        ".ini", ".cfg", ".sql", ".sh", ".html", ".css", ".scss",
     )
 
     # Directories we never walk into

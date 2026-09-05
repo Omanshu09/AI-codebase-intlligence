@@ -1,8 +1,15 @@
+import logging
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database.db import init_db
 from app.api import health, repositories, query
+
+# Without this, ingestion.py's logger.info/warning/exception calls are
+# silently dropped -- on Render, "Logs" is the only way to see what
+# actually happened during a stuck/failed ingestion.
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 
 app = FastAPI(
     title="AI Codebase Intelligence Platform",
